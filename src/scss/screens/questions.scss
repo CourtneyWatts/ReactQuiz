@@ -1,0 +1,38 @@
+.canvas#questions {
+  background-color: rgb(98, 223, 14);
+  .status {
+    padding: 10px;
+    background-color: white;
+    p {
+      margin:0
+    }
+  }
+  .timer {
+    height:60px;
+    background-color: rgb(238, 190, 87);
+    border-top: solid black;
+    border-bottom: solid black;
+    font-size:  35px;
+  }
+  .question {
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    height: 200px;
+    font-size: 22px;
+    text-align: center;
+  }
+  .options {
+    padding: 20px;
+    .option {
+    background-color: red;
+    width: 45%;
+    margin: 2.5%;
+    padding: 20px;
+    text-align: center;
+    font-size: 40px;
+    font-weight:900;
+    }
+  } 
+}

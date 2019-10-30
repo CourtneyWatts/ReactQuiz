@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+// screens
+@import './src/scss/screens/intro';
+@import './src/scss/screens/category-select';
+@import './src/scss/screens/questions.scss';
+@import './src/scss/screens/instructions.scss';
+
+
+
+
+/* canvas of the game */
+.canvas {
+  width: 414px;
+  height: 896px;
+  overflow: hidden;
+}
+
+

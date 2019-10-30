@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* canvas of the game */
+.canvas {
+  width: 414px;
+  height: 896px;
+  overflow: hidden;
+}
+
+.canvas.intro {
+  background-color: #fa6234;
+}
+
+.canvas.instructions {
+  background-color: #81a7ee;
+}
+
+.canvas.select-category {
+  background-color: #cf6363;
+  padding: 50px 0;
+}
+
+.canvas.select-category .category-button {
+  text-align: center;
+  width: 80%;
+  height: 200px;
+  background-color: azure;
+  border-radius: 5px;
+  /* height: 300px; */
+}
+
+.canvas.questions {
+  background-color: coral;
+}
+
+.questions .status {
+  height: 80px;
+}
+
+.questions p {
+  margin-bottom: 0;
+}
+
+#questions-screen {
+  color: red;
+}
+/*# sourceMappingURL=main.css.map */

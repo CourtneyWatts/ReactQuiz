@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* canvas of the game */
+.canvas {
+  width: 414px;
+  height: 896px;
+  overflow: hidden;
+}
+.canvas.intro {
+  background-color: rgb(250, 98, 52);
+}
+.canvas.instructions {
+  background-color: rgb(129, 167, 238);
+}
+.canvas.select-category{
+  background-color: rgb(207, 99, 99);
+  padding: 50px 0;
+}
+.canvas.select-category .category-button {
+  text-align: center;
+    width: 80%;
+    height: 200px;
+    background-color: azure;
+    border-radius: 5px;
+  /* height: 300px; */
+}
+.canvas.questions {
+  background-color: coral;
+} 
+.questions .status {
+  height: 80px;
+}
+.questions p {
+  margin-bottom: 0;
+}
+
+
