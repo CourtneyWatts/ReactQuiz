@@ -11,7 +11,7 @@ class Game extends React.Component {
     super(props)
     this.state = {
       screen: 'intro',
-      currentCount: 1,
+      currentCount: 5,
       chosenCategory: null,
       usersResults: null
     }
@@ -28,7 +28,7 @@ class Game extends React.Component {
       console.log('now is the time')
       if (this.state.screen === 'intro') {
         this.setState({
-          currentCount: 1,
+          currentCount: 6,
           screen: 'instructions'
         })
       } else if (this.state.screen === 'instructions') {

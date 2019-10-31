@@ -11,7 +11,7 @@ const sportsQuiz = {
       options: [1988, 1994, 1984, 1991]
     },
     {
-      question: 'After kicking England to Rugby World Cup glory, Johnny Wilkinson went on to win BBC Sports Personality of the year...',
+      question: 'After kicking England to Rugby World Cup glory, Johnny Wilkinson went on to win BBC Sports Personality of the year, in...',
       answer: 2003,
       options: [2003, 2008, 2010, 2007]
     },
@@ -36,7 +36,7 @@ const sportsQuiz = {
       options: [1988, 2004, 2008, 1968]
     },
     {
-      question: 'Paula Radcliffe’s marathon world record of 2:15:25, was set in the London marathon, in...',
+      question: 'Paula Radcliffe\'s marathon world record - of 2:15:25 - which stood for over 16 years - was set back in...',
       answer: 2003,
       options: [2003, 2010, 2008, 2006]
     },
