@@ -1,5 +1,6 @@
 import React from 'react'
 import quizDatabase from '../questionDatabase.js'
+import Timer from '../components/Timer.js'
 
 class Questions extends React.Component {
   constructor (props) {
@@ -9,9 +10,11 @@ class Questions extends React.Component {
       correctStreak: 0,
       timeRemaining: null,
       correctTotal: null,
-      points: null
+      points: null,
+      timeLeft: 10
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
+    this.outOfTime = this.outOfTime.bind(this)
   }
 
   handleAnswerClick (s, a) {
@@ -23,7 +26,7 @@ class Questions extends React.Component {
     console.log(selected)
     console.log(answer)
     if (selected === answer) {
-      newCorrectTotal = this.state.correctStreak + 1
+      newCorrectTotal = this.state.correctTotal + 1
       newCorrectStreak = this.state.correctStreak + 1
       console.log('correct')
     } else {
@@ -36,9 +39,23 @@ class Questions extends React.Component {
         correctStreak: newCorrectStreak,
         correctTotal: newCorrectTotal
       }
+      console.log('booo')
       this.props.onClick(r)
     } else {
       this.setState({ questionNumber: newQuestionNumber, correctStreak: newCorrectStreak, correctTotal: newCorrectTotal })
+    }
+  }
+
+  outOfTime () {
+    if (this.state.questionNumber === 10) {
+      const r = {
+        numberOfQuestions: this.state.questionNumber,
+        correctStreak: this.state.correctStreak,
+        correctTotal: this.state.correctTotal
+      }
+      this.props.onClick(r)
+    } else {
+      this.setState({ questionNumber: this.state.questionNumber + 1, correctStreak: 0 })
     }
   }
 
@@ -62,9 +79,7 @@ class Questions extends React.Component {
               <p>10</p>
             </div>
           </div>
-          <div className='timer d-flex align-items-center justify-content-center'>
-            <span>30</span>
-          </div>
+          <Timer timeLeft={this.state.timeLeft} outOfTime={this.outOfTime} />
           <div className='question d-flex align-items-center justify-content-center'>
             <p>{questionText}</p>
           </div>

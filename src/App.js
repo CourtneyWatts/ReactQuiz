@@ -65,7 +65,6 @@ class Game extends React.Component {
 
   componentDidMount () {
     console.log('didMount')
-
     this.intervalId = setInterval(this.loadingTimer.bind(this), 1000)
   }
 
