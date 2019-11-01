@@ -57,7 +57,7 @@ const sportsQuiz = {
     ['Oh No !', 'NOVICE', 'Francis Jeffers', 'images/sports/francisjeffers.jpg'],
     ['mmmm...', 'NOVICE', 'Audley Harrison', 'images/sports/audleyharrison.jpg'],
     ['OK...', 'THE NEARLY MAN', 'Tim Henman', 'images/sports/timhenman.jpg'],
-    ['Well done !', 'STEADY PRO', 'Gary Neville', 'images/sports/garyneville.png'],
+    ['Well done !', 'STEADY PRO', 'Gary Neville', 'images/sports/garyneville.jpg'],
     ['Well done !', 'SEASONED PRO', 'Steve Davis', 'images/sports/stevedavis.jpg'],
     ['Well done !', 'WORLD CLASS', 'David de Gea', 'images/sports/daviddegea.jpg'],
     ['GREAT !', 'LEGEND', 'Michael Schumacher', 'images/sports/michaelschumacher.jpg'],

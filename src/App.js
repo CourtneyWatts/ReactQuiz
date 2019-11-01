@@ -11,12 +11,13 @@ class Game extends React.Component {
     super(props)
     this.state = {
       screen: 'intro',
-      currentCount: 5,
+      currentCount: 1,
       chosenCategory: null,
-      usersResults: null
+      usersResults: {}
     }
     this.handleCategoryClick = this.handleCategoryClick.bind(this)
     this.handleFinalAnswerClick = this.handleFinalAnswerClick.bind(this)
+    this.handleBackToStartClick = this.handleBackToStartClick.bind(this)
   }
 
   loadingTimer () {
@@ -28,7 +29,7 @@ class Game extends React.Component {
       console.log('now is the time')
       if (this.state.screen === 'intro') {
         this.setState({
-          currentCount: 6,
+          currentCount: 1,
           screen: 'instructions'
         })
       } else if (this.state.screen === 'instructions') {
@@ -48,9 +49,17 @@ class Game extends React.Component {
     })
   }
 
-  handleFinalAnswerClick () {
+  handleFinalAnswerClick (r) {
     this.setState({
-      screen: 'summary'
+      screen: 'summary',
+      usersResults: r
+    })
+  }
+
+  handleBackToStartClick () {
+    this.setState({
+      screen: 'select-category',
+      usersResults: null
     })
   }
 
@@ -88,7 +97,7 @@ class Game extends React.Component {
     } else if (this.state.screen === 'summary') {
       return (
         <div className='canvas' id='summary'>
-          <Summary />
+          <Summary results={this.state.usersResults} onClick={this.handleBackToStartClick} />
         </div>
       )
     }

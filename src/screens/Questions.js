@@ -8,6 +8,7 @@ class Questions extends React.Component {
       questionNumber: 1,
       correctStreak: 0,
       timeRemaining: null,
+      correctTotal: null,
       points: null
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
@@ -30,8 +31,12 @@ class Questions extends React.Component {
       newCorrectStreak = 0
     }
     if (this.state.questionNumber === 10) {
-      this.setState({ questionNumber: newQuestionNumber, correctStreak: newCorrectStreak, correctTotal: newCorrectTotal })
-      this.props.onClick()
+      const r = {
+        numberOfQuestions: this.state.questionNumber,
+        correctStreak: newCorrectStreak,
+        correctTotal: newCorrectTotal
+      }
+      this.props.onClick(r)
     } else {
       this.setState({ questionNumber: newQuestionNumber, correctStreak: newCorrectStreak, correctTotal: newCorrectTotal })
     }
