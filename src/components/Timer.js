@@ -15,13 +15,32 @@ class Timer extends React.Component {
     }
   }
 
-  componentWillReceiveProps () {
-    this.setState({ timeLeft: this.props.timeLeft })
+  componentWillReceiveProps (newProps) {
+    if (newProps.stopCounter === false) {
+      console.log('stopCounterfalse')
+      this.setState({ timeLeft: this.props.timeLeft })
+    }
   }
 
   componentDidUpdate () {
-    clearInterval(this.intervalId)
-    this.intervalId = setInterval(this.questionTimer.bind(this), 1000)
+    console.log('component will update')
+    if (this.props.stopCounter === true) {
+      var verdictDisplay = document.getElementById('timer')
+      if (this.props.verdict === 'correct' ) {
+        verdictDisplay.innerHTML = 'CORRECT'
+      } else if (this.props.verdict === 'incorrect') {
+        verdictDisplay.innerHTML = 'INCORRECT'
+      } else if (this.props.verdict === 'outoftime') {
+        verdictDisplay.innerHTML = 'Out of Time'
+      }
+      // where i want to put all of my success code in
+
+      clearInterval(this.intervalId)
+      console.log('bingo')
+    } else {
+      clearInterval(this.intervalId)
+      this.intervalId = setInterval(this.questionTimer.bind(this), 1000)
+    }
   }
 
   componentDidMount () {
@@ -37,7 +56,7 @@ class Timer extends React.Component {
   render () {
     return (
       <div className='timer d-flex align-items-center justify-content-center'>
-        <span>{this.state.timeLeft}</span>
+        <span id='timer'>{this.state.timeLeft}</span>
       </div>
     )
   }

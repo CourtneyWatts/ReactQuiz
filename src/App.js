@@ -96,7 +96,7 @@ class Game extends React.Component {
     } else if (this.state.screen === 'summary') {
       return (
         <div className='canvas' id='summary'>
-          <Summary results={this.state.usersResults} onClick={this.handleBackToStartClick} />
+          <Summary category={this.state.chosenCategory} results={this.state.usersResults} onClick={this.handleBackToStartClick} />
         </div>
       )
     }
