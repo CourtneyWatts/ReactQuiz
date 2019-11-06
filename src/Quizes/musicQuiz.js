@@ -1,14 +1,25 @@
-import rebeccablack from '../images/music/rebeccablack.jpg'
-import parishilton from '../images/music/parishilton.jpg'
-import vanillaice from '../images/music/vanillaice.jpg'
-import ginag from '../images/music/ginag.png'
-import littlemix from '../images/music/littlemix.jpg'
-import takethat from '../images/music/takethat.jpg'
-import jayz from '../images/music/jayz.jpg'
-import edsheeran from '../images/music/edsheeran.jpg'
-import adele from '../images/music/adele.jpg'
-import elvispresley from '../images/music/elvispresley.jpg'
-import michaeljackson from '../images/music/michaeljackson.jpg'
+import rebeccablack from '../images/accolades/music/rebeccablack.jpg'
+import parishilton from '../images/accolades/music/parishilton.jpg'
+import vanillaice from '../images/accolades/music/vanillaice.jpg'
+import ginag from '../images/accolades/music/ginag.png'
+import littlemix from '../images/accolades/music/littlemix.jpg'
+import takethat from '../images/accolades/music/takethat.jpg'
+import jayz from '../images/accolades/music/jayz.jpg'
+import edsheeran from '../images/accolades/music/edsheeran.jpg'
+import adele from '../images/accolades/music/adele.jpg'
+import elvispresley from '../images/accolades/music/elvispresley.jpg'
+import michaeljackson from '../images/accolades/music/michaeljackson.jpg'
+
+import questionOneImage from '../images/questions/films/questionOneImage.jpg'
+import questionTwoImage from '../images/questions/films/questionTwoImage.jpg'
+import questionThreeImage from '../images/questions/films/questionThreeImage.jpg'
+import questionFourImage from '../images/questions/films/questionFourImage.jpg'
+import questionFiveImage from '../images/questions/films/questionFiveImage.jpg'
+import questionSixImage from '../images/questions/films/questionSixImage.jpg'
+import questionSevenImage from '../images/questions/films/questionSevenImage.jpg'
+import questionEightImage from '../images/questions/films/questionEightImage.jpg'
+import questionNineImage from '../images/questions/films/questionNineImage.jpg'
+import questionTenImage from '../images/questions/films/questionTenImage.jpg'
 
 const musicQuiz = {
   questionLibrary: [
@@ -16,61 +27,61 @@ const musicQuiz = {
       question: "The Spice Girls smash hit single 'Wannabe', was released in...",
       answer: 1996,
       options: [1996, 1998, 1994, 1995],
-      supportingImage: null
+      supportingImage: questionOneImage
     },
     {
       question: 'Legendary soul singer James Brown, sadly passed away on Christmas day, in...',
       answer: 2006,
       options: [2006, 2012, 2000, 2001],
-      supportingImage: null
+      supportingImage: questionTwoImage
     },
     {
       question: "'Sgt. Pepper’s Lonely Hearts Club Band’, the 8th Studio album from the Beatles, was released in...",
       answer: 1962,
       options: [1962, 1952, 1971, 1972],
-      supportingImage: null
+      supportingImage: questionThreeImage
     },
     {
       question: "Whitney Houstons rendition of 'I will always Love You' famously spent 10 weeks atop the UK singles chart, in...",
       answer: 1992,
       options: [1992, 1990, 1993, 1996],
-      supportingImage: null
+      supportingImage: questionFourImage
     },
     {
       question: 'The King of Rock Elvis Presley, sadly passed away in the summer of ...',
       answer: 1977,
       options: [1977, 1987, 1985, 1990],
-      supportingImage: null
+      supportingImage: questionFiveImage
     },
     {
       question: 'The first ever Glastonbury Festival was held in...',
       answer: 1970,
       options: [1970, 1985, 1978, 1990],
-      supportingImage: null
+      supportingImage: questionSixImage
     },
     {
       question: "Reality television show 'The X Factor' first appeared on UK screens in...",
       answer: 2004,
       options: [2004, 2001, 2009, 2007],
-      supportingImage: null
+      supportingImage: questionSevenImage
     },
     {
       question: "Adele was catapulted into superstardom after her live performance of 'Someone like you', at Brit awards...",
       answer: 2011,
       options: [2011, 2008, 2013, 2014],
-      supportingImage: null
+      supportingImage: questionEightImage
     },
     {
       question: "After the disbandment of Destinys Child, star member Beyonce launched her debut solo album 'Dangerously in Love', in ...",
       answer: 2003,
       options: [2003, 2008, 1995, 2010],
-      supportingImage: null
+      supportingImage: questionNineImage
     },
     {
       question: "'Top of the Pops', britains music chart television show, first aired in the UK in...",
       answer: 1964,
       options: [1964, 1974, 1975, 1985],
-      supportingImage: null
+      supportingImage: questionTenImage
     }
   ],
   accolades: [

@@ -12,7 +12,8 @@ class Questions extends React.Component {
       correctTotal: 0,
       points: null,
       stopCounter: false,
-      timeLeft: 10
+      timeLeft: 10,
+      buttonsDisabled: false
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
     this.outOfTime = this.outOfTime.bind(this)
@@ -20,6 +21,9 @@ class Questions extends React.Component {
 
   // Clicking an answer
   handleAnswerClick (s, a) {
+    if (this.state.buttonsDisabled) {
+      return
+    }
     const selected = s
     const answer = a
     let newCorrectStreak
@@ -36,7 +40,7 @@ class Questions extends React.Component {
       verdict = 'incorrect'
     }
     // stop timer and give verdict
-    this.setState({ stopCounter: true, verdict: verdict })
+    this.setState({ stopCounter: true, verdict: verdict, buttonsDisabled: true })
     setTimeout(() => {
       if (this.state.questionNumber === 10) {
         const r = {
@@ -47,14 +51,14 @@ class Questions extends React.Component {
         }
         this.props.onClick(r)
       } else {
-        this.setState({ questionNumber: newQuestionNumber, correctStreak: newCorrectStreak, correctTotal: newCorrectTotal, stopCounter: false, timeLeft: 10 })
+        this.setState({ questionNumber: newQuestionNumber, correctStreak: newCorrectStreak, correctTotal: newCorrectTotal, stopCounter: false, timeLeft: 10, buttonsDisabled: false })
       }
     }, 3000)
   }
 
   // When the timer runs out
   outOfTime () {
-    this.setState({ stopCounter: true, verdict: 'outoftime' })
+    this.setState({ stopCounter: true, verdict: 'outoftime', buttonsDisabled: true })
     setTimeout(() => {
       if (this.state.questionNumber === 10) {
         const r = {
@@ -65,7 +69,7 @@ class Questions extends React.Component {
         }
         this.props.onClick(r)
       } else {
-        this.setState({ questionNumber: this.state.questionNumber + 1, correctStreak: 0, stopCounter: false, timeLeft: 10 })
+        this.setState({ questionNumber: this.state.questionNumber + 1, correctStreak: 0, stopCounter: false, timeLeft: 10, buttonsDisabled: false })
       }
     }, 3000)
   }
@@ -96,19 +100,19 @@ class Questions extends React.Component {
           </div>
           <div className='options d-flex flex-wrap'>
             <div
-              className='option' onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
+              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
             >{answerOptions[0]}
             </div>
             <div
-              className='option' onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
+              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
             >{answerOptions[1]}
             </div>
             <div
-              className='option' onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
+              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
             >{answerOptions[2]}
             </div>
             <div
-              className='option' onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
+              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
             >{answerOptions[3]}
             </div>
           </div>
