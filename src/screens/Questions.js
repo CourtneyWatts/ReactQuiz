@@ -1,6 +1,11 @@
 import React from 'react'
 import quizDatabase from '../questionDatabase.js'
 import Timer from '../components/Timer.js'
+import { ReactComponent as MoreTime } from '../images/icons/moreTime.svg'
+import { ReactComponent as Fifty } from '../images/icons/fifty.svg'
+import { ReactComponent as Clue } from '../images/icons/clue.svg'
+
+// import { ReactComponent as HalfChance } from '../images/icons/halfChance.svg'
 
 class Questions extends React.Component {
   constructor (props) {
@@ -12,7 +17,7 @@ class Questions extends React.Component {
       correctTotal: 0,
       points: null,
       stopCounter: false,
-      timeLeft: 10,
+      timeLeft: 10000,
       buttonsDisabled: false
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
@@ -42,7 +47,7 @@ class Questions extends React.Component {
     // stop timer and give verdict
     this.setState({ stopCounter: true, verdict: verdict, buttonsDisabled: true })
     setTimeout(() => {
-      if (this.state.questionNumber === 10) {
+      if (this.state.questionNumber === 1) {
         const r = {
           numberOfQuestions: this.state.questionNumber,
           correctStreak: newCorrectStreak,
@@ -80,23 +85,33 @@ class Questions extends React.Component {
     const question = quizDatabase[this.props.category].questionLibrary[questionIndexNumber]
     const questionText = question.question
     const answerOptions = question.options
+    const chosenCategory = this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)
     const a = question.answer
-    const newImage = quizDatabase[this.props.category].accolades[questionIndexNumber][3]
+    const newImage = question.supportingImage
 
     return (
       <div>
         <div>
-          <div className='status d-flex justify-content-around align-items-center'>
-            <p>{this.props.category}</p>
-            <div>
-              <p>{questionIndexNumber + 1}</p>
-              <p>of</p>
-              <p>10</p>
+          <div className='status d-flex justify-content-between align-items-center'>
+            <p className='chosenCategory'>{chosenCategory}
+            </p>
+            <div className='numberGroup text-center'>
+              <p className='questionNumber'>{questionIndexNumber + 1}</p>
+              <p className='of'>of</p>
+              <p className='total'>10</p>
             </div>
           </div>
           <Timer stopCounter={this.state.stopCounter} timeLeft={this.state.timeLeft} outOfTime={this.outOfTime} verdict={this.state.verdict} />
           <div className='question d-flex align-items-center justify-content-center'>
             <p>{questionText}</p>
+          </div>
+          <div className='supportingImageContainer'>
+            <img src={newImage} />
+          </div>
+          <div className='lifesContainer d-flex justify-content-around'>
+            <div className='life'><MoreTime /></div>
+            <div className='life'><Fifty /></div>
+            <div className='life'><Clue /></div>
           </div>
           <div className='options d-flex flex-wrap'>
             <div
@@ -115,10 +130,6 @@ class Questions extends React.Component {
               className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
             >{answerOptions[3]}
             </div>
-          </div>
-          <div>
-            <img src={newImage} />
-            <div>+ time</div>
           </div>
         </div>
       </div>

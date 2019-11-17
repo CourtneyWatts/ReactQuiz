@@ -1,0 +1,67 @@
+.canvas#summary {
+  background-color: $secondary-color;
+  .quick-summary{
+    margin-top:40px;
+    margin-bottom:35px;
+    color: white;
+  }
+  .summary-section {
+    .results-box{
+      font-size:16px;
+      width:280px;
+      margin: 10px auto;
+      border: 1px solid white;
+      font-weight: 700;
+      background-color: white;
+
+      .value {
+        padding: 8px;
+        color: $secondary-color;
+        background-color: white;
+
+      }
+      .field {
+        padding: 8px;
+        color: white;
+        background-color: $secondary-color;
+        width: 135px;
+      }
+    }
+    .talent-like{
+      .description {
+        width: 280px;
+        font-size:13px;
+        font-weight: bold;
+        padding:8px;
+        background-color: white;
+        margin: 10px auto;
+
+        // border-radius: 5px 0 0 5px;
+        p {
+          margin-bottom: 0;
+        }
+      }
+      .reflection-image {
+        margin: 0 auto;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        background-color: white;
+        object-fit: cover;
+        max-width: 100%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border: 3px solid white;
+        display: block;
+      }
+      .reflection-name {
+        margin: -15px auto 0;
+        display: inline-block;
+        padding:0 10px;
+        border-radius: 5px;
+        background-color: white;
+        font-size:14px;
+        font-weight: bold;
+      }
+    }
+  }
+}

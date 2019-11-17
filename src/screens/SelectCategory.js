@@ -1,4 +1,7 @@
 import React from 'react'
+import filmButton from '../images/menus/filmButton.jpg'
+import musicButton from '../images/menus/musicButton.jpg'
+import sportButton from '../images/menus/sportButton.jpg'
 
 class SelectCategory extends React.Component {
   constructor (props) {
@@ -10,12 +13,11 @@ class SelectCategory extends React.Component {
   }
 
   render () {
-    console.log(this.props.onClick)
     return (
       <div className='h-100 d-flex flex-column justify-content-around align-items-center'>
-        <div className='category-button' onClick={() => this.props.onClick('sports')}>Flex item 1</div>
-        <div className='category-button' onClick={() => this.props.onClick('films')}>Flex item 2</div>
-        <div className='category-button' onClick={() => this.props.onClick('music')}>Flex item 3</div>
+        <div style={{ backgroundImage: 'url(' + filmButton + ')' }} className='category-button d-flex align-items-center justify-content-center' onClick={() => this.props.onClick('films')}>FILM</div>
+        <div style={{ backgroundImage: 'url(' + musicButton + ')' }} className='category-button d-flex align-items-center justify-content-center' onClick={() => this.props.onClick('music')}>MUSIC</div>
+        <div style={{ backgroundImage: 'url(' + sportButton + ')' }} className='category-button d-flex align-items-center justify-content-center' onClick={() => this.props.onClick('sports')}>SPORT</div>
       </div>
     )
   }

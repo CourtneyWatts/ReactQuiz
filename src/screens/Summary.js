@@ -19,16 +19,29 @@ class Summary extends React.Component {
 
     return (
       <div>
-        <p>Number of Questions: {this.props.results.numberOfQuestions}</p>
-        <p>Correct streak: {this.props.results.correctStreak}</p>
-        <p>Total Correct: {this.props.results.correctTotal}</p>
-        <p>one word: {oneWord}</p>
-        <p>status: {status}</p>
-        <p>person: {person}</p>
-        <p>personImage: {personImage}</p>
-        <p>ranking: {ranking}</p>
+        <div className='quick-summary d-flex justify-content-center'>
+          <h1>{oneWord}</h1>
+        </div>
+        <div className='summary-section'>
+          <div className='results-box d-flex justify-content-between'>
+            <span className='field'>Correct:</span><span className='value'>{this.props.results.correctTotal}</span>
+          </div>
+          <div className='results-box d-flex justify-content-between'>
+            <span className='field'>Streak Bonus:</span><span className='value'>{this.props.results.correctStreak}</span>
+          </div>
+          <div className='results-box d-flex justify-content-between'>
+            <span className='field'>Lifes Used:</span><span className='value'>All</span>
+          </div>
+          <div className='mt-5 talent-like'>
+            <p className='description text-center'>If your xxx talent was a reflection of your xxx knowledge you would be...</p>
+            <img className='reflection-image' src={personImage} />
+            <div className='d-flex'><p className='reflection-name text-center'>{person}</p></div>
+          </div>
+          <p>ranking: {ranking}</p>
+        </div>
 
-        <p>summary yo!</p>
+        <p>status: {status}</p>
+        <p>ranking: {ranking}</p>
         <div onClick={this.props.onClick}> Back to Start </div>
       </div>
     )

@@ -1,38 +1,104 @@
+
+
 .canvas#questions {
-  background-color: rgb(98, 223, 14);
+  background-color: $secondary-color;
+  // #F65207
+  // #EE7225
+  // #D9DFC1
+  // #99D4D3
+  // $base-color
   .status {
-    padding: 10px;
-    background-color: white;
+    height: 85px;
+    padding: 0 20px;
+    background-color: $base-color;
+    color: white;
     p {
       margin:0
     }
+    .chosenCategory {
+      font-size: 42px;
+      font-weight: 900;
+    }
+    .numberGroup {
+      .questionNumber {
+        font-size: 36px;
+        line-height: 38px;
+        font-weight: 900;
+      }
+      .of {
+        font-size: 12px ;
+        line-height: 12px;
+      }
+      .total {
+        font-weight: 900;
+        font-size: 11px ;
+        line-height: 13px;
+        -webkit-transform:scale(2,1.2); /* Safari and Chrome */
+        -moz-transform:scale(2,1.2); /* Firefox */
+        -ms-transform:scale(2,1.2); /* IE 9 */
+        -o-transform:scale(2,1.2); /* Opera */
+        transform:scale(2,1.2); /* W3C */
+      }      
+    }
   }
   .timer {
-    height:60px;
-    background-color: rgb(238, 190, 87);
-    border-top: solid black;
-    border-bottom: solid black;
-    font-size:  35px;
+    color: $secondary-color;
+    background-color: white;
+    height:50px;
+    font-size:  38px;
+    border-top: 1px solid $secondary-color;
   }
   .question {
-    background-color: black;
+    background-color: $secondary-color;
     color: white;
     font-weight: 700;
     padding: 10px;
-    height: 200px;
+    height: 170px;
     font-size: 22px;
     text-align: center;
   }
+  .supportingImageContainer {
+    height: 200px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .lifesContainer {
+    padding: 15px 0;
+    color: white;
+    // border-top: 2px solid $base-color;
+    // border-bottom: 2px solid $base-color;
+    background-color: $secondary-color;
+    .life {
+      height: 44px;
+      width: 44px;
+      background-color: $secondary-color;
+      border-radius: 5px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      svg {
+        height: 100%;
+        width: 100%;
+        padding: 8px;
+        fill: white;
+      }
+    }
+  }
   .options {
     padding: 20px;
+    color: $secondary-color;
+    background-color: $secondary-color;
+    border-top: 2px solid $base-color;
     .option {
-    background-color: red;
+    background-color: white;
     width: 45%;
     margin: 2.5%;
     padding: 20px;
     text-align: center;
     font-size: 40px;
     font-weight:900;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     }
-  } 
+  }
 }

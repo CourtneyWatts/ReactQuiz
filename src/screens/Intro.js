@@ -11,7 +11,7 @@ class Intro extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='d-flex justify-content-center align-items-center h-100'>
         <p>This is my intro</p>
       </div>
     )

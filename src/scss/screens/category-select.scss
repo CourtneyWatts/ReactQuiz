@@ -1,11 +1,17 @@
 .canvas#select-category {
-  background-color: blue;
+  background-color: $secondary-color;
+  padding-top: 80px;
+  padding-bottom: 80px;
     .category-button {
-      text-align: center;
-        width: 80%;
-        height: 200px;
+        width: 300px;
+        height: 175px;
         background-color: azure;
-        border-radius: 5px;
-      /* height: 300px; */
+        border-radius: 15px;
+        background-position: center;
+        background-size: cover;
+        color: white;
+        font-weight:900;
+        font-size: 50px;
+        border: 3px solid white;
     }
   }

@@ -18,6 +18,7 @@ class Game extends React.Component {
     this.handleCategoryClick = this.handleCategoryClick.bind(this)
     this.handleFinalAnswerClick = this.handleFinalAnswerClick.bind(this)
     this.handleBackToStartClick = this.handleBackToStartClick.bind(this)
+    this.handleStartGameClick = this.handleStartGameClick.bind(this)
   }
 
   loadingTimer () {
@@ -29,13 +30,13 @@ class Game extends React.Component {
       console.log('now is the time')
       if (this.state.screen === 'intro') {
         this.setState({
-          currentCount: 1,
+          currentCount: 10,
           screen: 'instructions'
         })
       } else if (this.state.screen === 'instructions') {
         this.setState({
           screen: 'select-category',
-          currentCount: 0
+          currentCount: 10
         })
         clearInterval(this.intervalId)
       }
@@ -63,6 +64,14 @@ class Game extends React.Component {
     })
   }
 
+  handleStartGameClick () {
+    this.setState({
+      screen: 'select-category',
+      currentCount: 10
+    })
+    clearInterval(this.intervalId)
+  }
+
   componentDidMount () {
     console.log('didMount')
     this.intervalId = setInterval(this.loadingTimer.bind(this), 1000)
@@ -78,7 +87,7 @@ class Game extends React.Component {
     } else if (this.state.screen === 'instructions') {
       return (
         <div className='canvas' id='instructions'>
-          <Instructions />
+          <Instructions onClick={this.handleStartGameClick} />
         </div>
       )
     } else if (this.state.screen === 'select-category') {
