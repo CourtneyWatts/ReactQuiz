@@ -24,7 +24,7 @@
         padding: 8px;
         color: white;
         background-color: $secondary-color;
-        width: 135px;
+        width: 50%;
       }
     }
     .talent-like{
@@ -63,5 +63,10 @@
         font-weight: bold;
       }
     }
+  }
+  .back-arrow svg{
+    height: 44px;
+    width: 44px;
+    fill: white;
   }
 }
