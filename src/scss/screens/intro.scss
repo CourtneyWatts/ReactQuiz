@@ -1,3 +1,8 @@
 .canvas#intro {
-  background-color: $base-color;
+  background-color: $secondary-color;
+  .logo {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+  }
 }
