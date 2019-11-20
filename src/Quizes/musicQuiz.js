@@ -26,7 +26,7 @@ const musicQuiz = {
     {
       question: "The Spice Girls smash hit single 'Wannabe', was released in...",
       answer: 1996,
-      options: [1996, 1998, 1994, 1995],
+      options: [1998, 1994, 1995, 1996],
       supportingImage: questionOneImage
     },
     {
@@ -38,25 +38,25 @@ const musicQuiz = {
     {
       question: "'Sgt. Pepper’s Lonely Hearts Club Band’, the 8th Studio album from the Beatles, was released in...",
       answer: 1962,
-      options: [1962, 1952, 1971, 1972],
+      options: [1952, 1971, 1962, 1972],
       supportingImage: questionThreeImage
     },
     {
       question: "Whitney Houstons rendition of 'I will always Love You' famously spent 10 weeks atop the UK singles chart, in...",
       answer: 1992,
-      options: [1992, 1990, 1993, 1996],
+      options: [1990, 1992, 1993, 1996],
       supportingImage: questionFourImage
     },
     {
       question: 'The King of Rock Elvis Presley, sadly passed away in the summer of ...',
       answer: 1977,
-      options: [1977, 1987, 1985, 1990],
+      options: [1987, 1977, 1985, 1990],
       supportingImage: questionFiveImage
     },
     {
       question: 'The first ever Glastonbury Festival was held in...',
       answer: 1970,
-      options: [1970, 1985, 1978, 1990],
+      options: [1985, 1978, 1970, 1990],
       supportingImage: questionSixImage
     },
     {
@@ -68,19 +68,19 @@ const musicQuiz = {
     {
       question: "Adele was catapulted into superstardom after her live performance of 'Someone like you', at Brit awards...",
       answer: 2011,
-      options: [2011, 2008, 2013, 2014],
+      options: [2008, 2013, 2011, 2014],
       supportingImage: questionEightImage
     },
     {
       question: "After the disbandment of Destinys Child, star member Beyonce launched her debut solo album 'Dangerously in Love', in ...",
       answer: 2003,
-      options: [2003, 2008, 1995, 2010],
+      options: [2008, 2003, 1995, 2010],
       supportingImage: questionNineImage
     },
     {
       question: "'Top of the Pops', britains music chart television show, first aired in the UK in...",
       answer: 1964,
-      options: [1964, 1974, 1975, 1985],
+      options: [1974, 1975, 1985, 1964],
       supportingImage: questionTenImage
     }
   ],

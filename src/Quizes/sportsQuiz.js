@@ -26,13 +26,13 @@ const sportsQuiz = {
     {
       question: 'Uruguay hosted and won the first ever World Cup, in...',
       answer: 1930,
-      options: [1930, 1942, 1922, 1954],
+      options: [1942, 1922, 1930, 1954],
       supportingImage: questionOneImage
     },
     {
       question: 'Steffi Graf has a career total of 6 Wimbledon singles titles. Her first was in...',
       answer: 1988,
-      options: [1988, 1994, 1984, 1991],
+      options: [1994, 1988, 1984, 1991],
       supportingImage: questionTwoImage
     },
     {
@@ -50,31 +50,31 @@ const sportsQuiz = {
     {
       question: 'Sir Bradley Wiggins became the first British cyclist to win the Tour de France in...',
       answer: 2012,
-      options: [2012, 2014, 2015, 2010],
+      options: [2014, 2015, 2012, 2010],
       supportingImage: questionFiveImage
     },
     {
       question: 'Michael Johnson won an Olympic double - gold in the 200m and 400m - in Atlanta...',
       answer: 1996,
-      options: [1996, 1992, 1988, 2000],
+      options: [1992, 1988, 1996, 2000],
       supportingImage: questionSixImage
     },
     {
       question: 'Table Tennis made its Olympic debut in...',
       answer: 1988,
-      options: [1988, 2004, 2008, 1968],
+      options: [2004, 2008, 1968, 1988],
       supportingImage: questionSevenImage
     },
     {
       question: 'Paula Radcliffe\'s marathon world record - of 2:15:25 - which stood for over 16 years - was set back in...',
       answer: 2003,
-      options: [2003, 2010, 2008, 2006],
+      options: [2010, 2008, 2003, 2006],
       supportingImage: questionEightImage
     },
     {
       question: 'Italian striker, Roberto Baggio won the FIFA World Player of the Year, in...',
       answer: 1993,
-      options: [1993, 1990, 1998, 2000],
+      options: [1990, 1998, 2000, 1993],
       supportingImage: questionNineImage
     },
     {
