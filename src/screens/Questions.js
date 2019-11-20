@@ -13,11 +13,12 @@ class Questions extends React.Component {
     this.state = {
       questionNumber: 1,
       correctStreak: 0,
+      longestCorrectStreak: 0,
       timeRemaining: null,
       correctTotal: 0,
       points: null,
       stopCounter: false,
-      timeLeft: 10000,
+      timeLeft: 30,
       buttonsDisabled: false
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
@@ -33,12 +34,17 @@ class Questions extends React.Component {
     const answer = a
     let newCorrectStreak
     let newCorrectTotal
+    let newLongestCorrectStreak = this.state.longestCorrectStreak
     const newQuestionNumber = this.state.questionNumber + 1
     let verdict
     if (selected === answer) {
       newCorrectTotal = this.state.correctTotal + 1
       newCorrectStreak = this.state.correctStreak + 1
       verdict = 'correct'
+      if (newCorrectStreak > this.state.longestCorrectStreak) {
+        console.log('its longer')
+        newLongestCorrectStreak = newCorrectStreak
+      }
     } else {
       newCorrectTotal = this.state.correctTotal
       newCorrectStreak = 0
@@ -47,16 +53,25 @@ class Questions extends React.Component {
     // stop timer and give verdict
     this.setState({ stopCounter: true, verdict: verdict, buttonsDisabled: true })
     setTimeout(() => {
-      if (this.state.questionNumber === 1) {
+      if (this.state.questionNumber === 10) {
         const r = {
           numberOfQuestions: this.state.questionNumber,
           correctStreak: newCorrectStreak,
+          longestCorrectStreak: newLongestCorrectStreak,
           correctTotal: newCorrectTotal,
           ranking: newCorrectTotal / 2
         }
         this.props.onClick(r)
       } else {
-        this.setState({ questionNumber: newQuestionNumber, correctStreak: newCorrectStreak, correctTotal: newCorrectTotal, stopCounter: false, timeLeft: 10, buttonsDisabled: false })
+        this.setState({
+          questionNumber: newQuestionNumber,
+          correctStreak: newCorrectStreak,
+          correctTotal: newCorrectTotal,
+          longestCorrectStreak: newLongestCorrectStreak,
+          stopCounter: false,
+          timeLeft: 30,
+          buttonsDisabled: false
+        })
       }
     }, 3000)
   }
@@ -74,7 +89,7 @@ class Questions extends React.Component {
         }
         this.props.onClick(r)
       } else {
-        this.setState({ questionNumber: this.state.questionNumber + 1, correctStreak: 0, stopCounter: false, timeLeft: 10, buttonsDisabled: false })
+        this.setState({ questionNumber: this.state.questionNumber + 1, correctStreak: 0, stopCounter: false, timeLeft: 30, buttonsDisabled: false })
       }
     }, 3000)
   }
