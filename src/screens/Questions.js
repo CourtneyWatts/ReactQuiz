@@ -18,7 +18,7 @@ class Questions extends React.Component {
       correctTotal: 0,
       points: null,
       stopCounter: false,
-      timeLeft: 30,
+      timeLeft: 30000,
       buttonsDisabled: false
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
@@ -63,6 +63,9 @@ class Questions extends React.Component {
         }
         this.props.onClick(r)
       } else {
+        // wipes formatting on timer
+        var timer = document.getElementById('timer')
+        timer.className = ''
         this.setState({
           questionNumber: newQuestionNumber,
           correctStreak: newCorrectStreak,
@@ -89,7 +92,16 @@ class Questions extends React.Component {
         }
         this.props.onClick(r)
       } else {
-        this.setState({ questionNumber: this.state.questionNumber + 1, correctStreak: 0, stopCounter: false, timeLeft: 30, buttonsDisabled: false })
+        // wipes formatting on timer
+        var timer = document.getElementById('timer')
+        timer.className = ''
+        this.setState({
+          questionNumber: this.state.questionNumber + 1,
+          correctStreak: 0,
+          stopCounter: false,
+          timeLeft: 30,
+          buttonsDisabled: false
+        })
       }
     }, 3000)
   }

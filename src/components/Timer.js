@@ -26,12 +26,15 @@ class Timer extends React.Component {
     console.log('component will update')
     if (this.props.stopCounter === true) {
       var verdictDisplay = document.getElementById('timer')
-      if (this.props.verdict === 'correct' ) {
+      if (this.props.verdict === 'correct') {
         verdictDisplay.innerHTML = 'CORRECT'
+        verdictDisplay.className += ' correct'
       } else if (this.props.verdict === 'incorrect') {
         verdictDisplay.innerHTML = 'INCORRECT'
+        verdictDisplay.className += ' incorrect'
       } else if (this.props.verdict === 'outoftime') {
         verdictDisplay.innerHTML = 'Out of Time'
+        verdictDisplay.className += ' out-of-time'
       }
       // where i want to put all of my success code in
 
