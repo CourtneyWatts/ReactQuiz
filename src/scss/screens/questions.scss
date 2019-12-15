@@ -47,6 +47,21 @@
     height:50px;
     font-size:  38px;
     border-top: 1px solid $secondary-color;
+    
+  }
+  #timer-div {
+    &.correct {
+      background-color: green;
+      color: white;
+    }
+    &.incorrect{
+      background-color: red;
+      color: white;
+    }
+    &.out-of-time {
+      background-color: grey;
+      color: white;
+    }
   }
   .question {
     background-color: $secondary-color;
