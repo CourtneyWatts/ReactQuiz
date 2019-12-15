@@ -8,6 +8,7 @@ class Timer extends React.Component {
   }
 
   questionTimer () {
+    console.log(this.props.timeBonus)
     this.setState({ timeLeft: this.state.timeLeft - 1 })
     if (this.state.timeLeft === 0) {
       clearInterval(this.intervalId)
@@ -18,23 +19,28 @@ class Timer extends React.Component {
   componentWillReceiveProps (newProps) {
     if (newProps.stopCounter === false) {
       console.log('stopCounterfalse')
-      this.setState({ timeLeft: this.props.timeLeft })
+      if (newProps.timeBonus) {
+        this.setState({ timeLeft: this.state.timeLeft + 30 })
+      } else {
+        this.setState({ timeLeft: this.props.timeLeft })
+      }
     }
   }
 
   componentDidUpdate () {
     console.log('component will update')
     if (this.props.stopCounter === true) {
-      var verdictDisplay = document.getElementById('timer')
+      const verdictDisplay = document.getElementById('timer')
+      const verdictDisplayDiv = document.getElementById('timer-div')
       if (this.props.verdict === 'correct') {
         verdictDisplay.innerHTML = 'CORRECT'
-        verdictDisplay.className += ' correct'
+        verdictDisplayDiv.className += ' correct'
       } else if (this.props.verdict === 'incorrect') {
         verdictDisplay.innerHTML = 'INCORRECT'
-        verdictDisplay.className += ' incorrect'
+        verdictDisplayDiv.className += ' incorrect'
       } else if (this.props.verdict === 'outoftime') {
         verdictDisplay.innerHTML = 'Out of Time'
-        verdictDisplay.className += ' out-of-time'
+        verdictDisplayDiv.className += ' out-of-time'
       }
       // where i want to put all of my success code in
 
@@ -58,7 +64,7 @@ class Timer extends React.Component {
 
   render () {
     return (
-      <div className='timer d-flex align-items-center justify-content-center'>
+      <div id='timer-div' className='timer d-flex align-items-center justify-content-center'>
         <span id='timer'>{this.state.timeLeft}</span>
       </div>
     )

@@ -19,10 +19,13 @@ class Questions extends React.Component {
       points: null,
       stopCounter: false,
       timeLeft: 30000,
+      timeBonus: false,
       buttonsDisabled: false
+
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
     this.outOfTime = this.outOfTime.bind(this)
+    this.handleMoreTimeClick = this.handleMoreTimeClick.bind(this)
   }
 
   // Clicking an answer
@@ -64,8 +67,8 @@ class Questions extends React.Component {
         this.props.onClick(r)
       } else {
         // wipes formatting on timer
-        var timer = document.getElementById('timer')
-        timer.className = ''
+        var timer = document.getElementById('timer-div')
+        timer.className = 'timer d-flex align-items-center justify-content-center'
         this.setState({
           questionNumber: newQuestionNumber,
           correctStreak: newCorrectStreak,
@@ -73,6 +76,8 @@ class Questions extends React.Component {
           longestCorrectStreak: newLongestCorrectStreak,
           stopCounter: false,
           timeLeft: 30,
+          timeBonus: false,
+          moreTimeUsed: false,
           buttonsDisabled: false
         })
       }
@@ -93,17 +98,28 @@ class Questions extends React.Component {
         this.props.onClick(r)
       } else {
         // wipes formatting on timer
-        var timer = document.getElementById('timer')
-        timer.className = ''
+        var timer = document.getElementById('timer-div')
+        timer.className = 'timer d-flex align-items-center justify-content-center'
         this.setState({
           questionNumber: this.state.questionNumber + 1,
           correctStreak: 0,
           stopCounter: false,
           timeLeft: 30,
+          timeBonus: false,
           buttonsDisabled: false
         })
       }
     }, 3000)
+  }
+
+  handleMoreTimeClick () {
+    if (this.state.moreTimeUsed) {
+      return
+    }
+    this.setState({
+      timeBonus: true,
+      moreTimeUsed: true
+    })
   }
 
   render () {
@@ -128,7 +144,7 @@ class Questions extends React.Component {
               <p className='total'>10</p>
             </div>
           </div>
-          <Timer stopCounter={this.state.stopCounter} timeLeft={this.state.timeLeft} outOfTime={this.outOfTime} verdict={this.state.verdict} />
+          <Timer stopCounter={this.state.stopCounter} timeBonus={this.state.timeBonus} timeLeft={this.state.timeLeft} outOfTime={this.outOfTime} verdict={this.state.verdict} />
           <div className='question d-flex align-items-center justify-content-center'>
             <p>{questionText}</p>
           </div>
@@ -136,7 +152,7 @@ class Questions extends React.Component {
             <img src={newImage} />
           </div>
           <div className='lifesContainer d-flex justify-content-around'>
-            <div className='life'><MoreTime /></div>
+            <div className='life'><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
             <div className='life'><Fifty /></div>
             <div className='life'><Clue /></div>
           </div>
