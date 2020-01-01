@@ -24,63 +24,73 @@ import questionTenImage from '../images/questions/sports/questionTenImage.jpg'
 const sportsQuiz = {
   questionLibrary: [
     {
-      question: 'Uruguay hosted and won the first ever World Cup, in...',
+      question: 'Uruguay hosted and won the first ever World Cup, back in...',
       answer: 1930,
       options: [1942, 1922, 1930, 1954],
+      clue: 'The competition was held before World War II',
       supportingImage: questionOneImage
     },
     {
       question: 'Steffi Graf has a career total of 6 Wimbledon singles titles. Her first was in...',
       answer: 1988,
       options: [1994, 1988, 1984, 1991],
+      clue: 'In the same year, Mike Tyson knocked out Michael Spinks to become Undisputed Heavyweight Champion of the World',
       supportingImage: questionTwoImage
     },
     {
-      question: 'After kicking England to Rugby World Cup glory, Johnny Wilkinson went on to win BBC Sports Personality of the year, in...',
+      question: 'After kicking England to Rugby World Cup glory, Johnny Wilkinson went on to win BBC Sports Personality of the year 20??',
       answer: 2003,
       options: [2003, 2008, 2010, 2007],
+      clue: 'In the same year, David Beckham left Manchester United to join Real Madrid',
       supportingImage: questionThreeImage
     },
     {
-      question: 'Manchester United completed a historic treble, winning the Premier League, FA Cup and Champions League, in...',
+      question: 'Manchester United completed a historic treble, winning the Premier League, FA Cup and Champions League, back in...',
       answer: 1999,
       options: [1999, 2003, 1994, 2008],
+      clue: 'In the same year, Michael Johnson set a new world record in the 400 metres, at the World Championships in Seville',
       supportingImage: questionFourImage
     },
     {
       question: 'Sir Bradley Wiggins became the first British cyclist to win the Tour de France in...',
       answer: 2012,
       options: [2014, 2015, 2012, 2010],
+      clue: 'In the same year, Wiggins also captured Olympic Gold in the mens road Time Trial',
       supportingImage: questionFiveImage
     },
     {
-      question: 'Michael Johnson won an Olympic double - gold in the 200m and 400m - in Atlanta...',
+      question: 'Michael Johnson won Olympic gold in the 200m and 400m - in Atlanta ...',
       answer: 1996,
       options: [1992, 1988, 1996, 2000],
+      clue: 'Floyd Mayweather won a Bronze medal at the same Olympics',
       supportingImage: questionSixImage
     },
     {
       question: 'Table Tennis made its Olympic debut in...',
       answer: 1988,
       options: [2004, 2008, 1968, 1988],
+      clue: 'In the same year, Wimbledon won the FA Cup',
       supportingImage: questionSevenImage
     },
     {
       question: 'Paula Radcliffe\'s marathon world record - of 2:15:25 - which stood for over 16 years - was set back in...',
       answer: 2003,
       options: [2010, 2008, 2003, 2006],
+      clue: 'In the same year, The Tampa Bay Buccaneers won the Super Bowl',
       supportingImage: questionEightImage
     },
     {
       question: 'Italian striker, Roberto Baggio won the FIFA World Player of the Year, in...',
       answer: 1993,
       options: [1990, 1998, 2000, 1993],
+      clue: 'In the same year, Manchester United were crowned the first ever Premier league Champions',
       supportingImage: questionNineImage
     },
     {
-      question: 'Mike Tyson beat Trevor Berbick to become the youngest world heavyweight champion ever, back in...',
+      question: 'Mike Tyson beat Trevor Berbick to become the youngest World Heavyweight Champion, back in...',
       answer: 1986,
       options: [1986, 1990, 1996, 1989],
+      clue: 'It was the same year that Nigel Mansell won BBC\'s Sports Personality of the year',
       supportingImage: questionTenImage
     }
   ],

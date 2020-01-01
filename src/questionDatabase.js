@@ -1,6 +1,6 @@
-import sportsQuiz from './Quizes/sportsQuiz.js'
-import filmQuiz from './Quizes/filmQuiz.js'
-import musicQuiz from './Quizes/musicQuiz.js'
+import sportsQuiz from './Quiz/sportsQuiz.js'
+import filmQuiz from './Quiz/filmQuiz.js'
+import musicQuiz from './Quiz/musicQuiz.js'
 
 const quizDatabase = {
   sports: sportsQuiz,
