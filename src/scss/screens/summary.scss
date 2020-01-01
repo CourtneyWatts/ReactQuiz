@@ -1,5 +1,9 @@
 .canvas#summary {
   background-color: $secondary-color;
+  .fa {
+    font-size: 30px;
+    padding: 3px;
+  }
   .quick-summary{
     margin-top:40px;
     margin-bottom:35px;

@@ -50,6 +50,16 @@ class Summary extends React.Component {
             <div className='d-flex'><p className='reflection-name text-center'>{person}</p></div>
           </div>
         </div>
+        <div className='d-flex justify-content-center'>
+          <h1 class='banner'>A Simple CSS Banner</h1>
+        </div>
+        <div className='mt-5 d-flex justify-content-center'>
+          <span class='fa fa-star checked' />
+          <span class='fa fa-star checked' />
+          <span class='fa fa-star checked' />
+          <span class='fa fa-star' />
+          <span class='fa fa-star' />
+        </div>
         <div className='mt-5 ml-4'>
           <div onClick={this.props.onClick} className='back-arrow'><BackArrow /></div>
         </div>
