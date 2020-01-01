@@ -20,17 +20,20 @@ class Questions extends React.Component {
       stopCounter: false,
       timeLeft: 30000,
       timeBonus: false,
+      fiftyFiftyUsed: false,
       buttonsDisabled: false
 
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
     this.outOfTime = this.outOfTime.bind(this)
     this.handleMoreTimeClick = this.handleMoreTimeClick.bind(this)
+    this.handle5050Click = this.handle5050Click.bind(this)
+    this.handleClueClick = this.handleClueClick.bind(this)
   }
 
   // Clicking an answer
   handleAnswerClick (s, a) {
-    if (this.state.buttonsDisabled) {
+    if (this.state.buttonsDisabled || document.getElementById(s).classList.contains('ruled-out')) {
       return
     }
     const selected = s
@@ -69,6 +72,13 @@ class Questions extends React.Component {
         // wipes formatting on timer
         var timer = document.getElementById('timer-div')
         timer.className = 'timer d-flex align-items-center justify-content-center'
+        // wipes 50/50 formating & clue display
+        const optionDivs = document.querySelectorAll('.option')
+        for (let i = 0; i < optionDivs.length; i++) {
+          optionDivs[i].classList.remove('ruled-out')
+        }
+        document.getElementById('clue').classList.remove('show')
+
         this.setState({
           questionNumber: newQuestionNumber,
           correctStreak: newCorrectStreak,
@@ -77,7 +87,8 @@ class Questions extends React.Component {
           stopCounter: false,
           timeLeft: 30,
           timeBonus: false,
-          moreTimeUsed: false,
+          // moreTimeUsed: false,
+          fiftyFifty: false,
           buttonsDisabled: false
         })
       }
@@ -100,12 +111,20 @@ class Questions extends React.Component {
         // wipes formatting on timer
         var timer = document.getElementById('timer-div')
         timer.className = 'timer d-flex align-items-center justify-content-center'
+        // wipes 50/50 formatting
+        const optionDivs = document.querySelectorAll('.option')
+        for (let i = 0; i < optionDivs.length; i++) {
+          optionDivs[i].classList.remove('ruled-out')
+        }
+        document.getElementById('clue').classList.remove('show')
+
         this.setState({
           questionNumber: this.state.questionNumber + 1,
           correctStreak: 0,
           stopCounter: false,
           timeLeft: 30,
           timeBonus: false,
+          fiftyFifty: false,
           buttonsDisabled: false
         })
       }
@@ -122,6 +141,36 @@ class Questions extends React.Component {
     })
   }
 
+  handle5050Click () {
+    if (this.state.fiftyFiftyUsed) {
+      return
+    }
+    const questionIndexNumber = this.state.questionNumber - 1
+    const question = quizDatabase[this.props.category].questionLibrary[questionIndexNumber]
+    const incorrectArray = question.options.slice()
+    incorrectArray.splice(question.options.indexOf(question.answer), 1)
+    incorrectArray.splice((Math.floor(Math.random() * 3)), 1)
+    let i
+    for (i = 0; i < incorrectArray.length; i++) {
+      document.getElementById(incorrectArray[i]).className += ' ruled-out'
+    }
+    this.setState({
+      fiftyFifty: true,
+      fiftyFiftyUsed: true
+    })
+  }
+
+  handleClueClick () {
+    if (this.state.clueUsed) {
+      return
+    }
+    console.log('boom')
+    document.getElementById('clue').className += ' show'
+    this.setState({
+      clueUsed: true
+    })
+  }
+
   render () {
     // Setting variables to display in the questions page layout
     const questionIndexNumber = this.state.questionNumber - 1
@@ -130,6 +179,7 @@ class Questions extends React.Component {
     const answerOptions = question.options
     const chosenCategory = this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)
     const a = question.answer
+    const clue = question.clue
     const newImage = question.supportingImage
 
     return (
@@ -148,29 +198,30 @@ class Questions extends React.Component {
           <div className='question d-flex align-items-center justify-content-center'>
             <p>{questionText}</p>
           </div>
-          <div className='supportingImageContainer'>
-            <img src={newImage} />
+          <div className='supportingImageContainer' style={{ backgroundImage: `url(${newImage})`, backgroundSize: 'cover' }}>
+            <div id='clue' className='clue-overlay'><p className='clue-text'>{clue}</p></div>
+            {/* <img src={newImage} /> */}
           </div>
           <div className='lifesContainer d-flex justify-content-around'>
             <div className='life'><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
-            <div className='life'><Fifty /></div>
-            <div className='life'><Clue /></div>
+            <div className='life'><Fifty onClick={() => { this.handle5050Click() }} /></div>
+            <div className='life'><Clue onClick={() => { this.handleClueClick() }} /></div>
           </div>
           <div className='options d-flex flex-wrap'>
             <div
-              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
+              id={answerOptions[0]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
             >{answerOptions[0]}
             </div>
             <div
-              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
+              id={answerOptions[1]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
             >{answerOptions[1]}
             </div>
             <div
-              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
+              id={answerOptions[2]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
             >{answerOptions[2]}
             </div>
             <div
-              className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
+              id={answerOptions[3]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
             >{answerOptions[3]}
             </div>
           </div>

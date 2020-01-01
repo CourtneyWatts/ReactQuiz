@@ -10,7 +10,7 @@
   .status {
     height: 85px;
     padding: 0 20px;
-    background-color: $base-color;
+    background-color: $secondary-color;
     color: white;
     p {
       margin:0
@@ -51,7 +51,7 @@
   }
   #timer-div {
     &.correct {
-      background-color: green;
+      background-color: #7FFFD4;
       color: white;
     }
     &.incorrect{
@@ -74,14 +74,33 @@
   }
   .supportingImageContainer {
     height: 200px;
+    position: relative;
+    text-align: center;
+
     img {
       max-width: 100%;
       max-height: 100%;
     }
+    .clue-overlay{
+      position: relative;
+      height: 100%;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      .clue-text {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 60px 30px 0px;
+        word-spacing: 1px;
+      }
+      &.show {
+        display: block;
+      }
+    }
   }
   .lifesContainer {
     border-top: 2px solid $base-color;
-
     padding: 15px 0;
     color: white;
     background-color: white;
@@ -108,14 +127,18 @@
     border-top: 2px solid $base-color;
     .option {
     background-color: white;
-    width: 45%;
-    margin: 2.5%;
-    padding: 20px;
+    width: 42%;
+    margin: 4%;
+    padding: 10px;
     text-align: center;
     font-size: 40px;
     font-weight:900;
     border-radius: 10px;
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.4);
-  }
+      &.ruled-out {
+        color: #c5c5c5;
+        background-color: #d3d3d3;
+      }
+    }
   }
 }
