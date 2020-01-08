@@ -18,10 +18,12 @@ class Questions extends React.Component {
       correctTotal: 0,
       points: null,
       stopCounter: false,
-      timeLeft: 30000,
+      timeLeft: 30,
       timeBonus: false,
       fiftyFiftyUsed: false,
-      buttonsDisabled: false
+      lifesRemaining: 6,
+      buttonsDisabled: false,
+      timeBanked: 0
 
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this)
@@ -36,16 +38,21 @@ class Questions extends React.Component {
     if (this.state.buttonsDisabled || document.getElementById(s).classList.contains('ruled-out')) {
       return
     }
+    const timeBanked = document.getElementById('timer').innerText
+    let newTimeBanked
     const selected = s
     const answer = a
     let newCorrectStreak
     let newCorrectTotal
     let newLongestCorrectStreak = this.state.longestCorrectStreak
     const newQuestionNumber = this.state.questionNumber + 1
+    // let newTimeBanked = this.state.timeBanked
     let verdict
     if (selected === answer) {
       newCorrectTotal = this.state.correctTotal + 1
       newCorrectStreak = this.state.correctStreak + 1
+      newTimeBanked = parseInt(timeBanked) + this.state.timeBanked
+      console.log(newTimeBanked)
       verdict = 'correct'
       if (newCorrectStreak > this.state.longestCorrectStreak) {
         console.log('its longer')
@@ -54,18 +61,29 @@ class Questions extends React.Component {
     } else {
       newCorrectTotal = this.state.correctTotal
       newCorrectStreak = 0
+      newTimeBanked = this.state.timeBanked
       verdict = 'incorrect'
     }
     // stop timer and give verdict
     this.setState({ stopCounter: true, verdict: verdict, buttonsDisabled: true })
     setTimeout(() => {
       if (this.state.questionNumber === 10) {
+        let timeBankedPoints = this.state.timeBanked
+        if (timeBankedPoints > 200) {
+          timeBankedPoints = 4
+        } else if (timeBankedPoints >= 150) {
+          timeBankedPoints = 2
+        } else {
+          timeBankedPoints = 0
+        }
         const r = {
           numberOfQuestions: this.state.questionNumber,
           correctStreak: newCorrectStreak,
           longestCorrectStreak: newLongestCorrectStreak,
           correctTotal: newCorrectTotal,
-          ranking: newCorrectTotal / 2
+          lifesRemaining: this.state.lifesRemaining,
+          timeBanked: newTimeBanked,
+          ranking: Math.floor((newCorrectTotal + this.state.lifesRemaining + timeBankedPoints) / 2) / 2
         }
         this.props.onClick(r)
       } else {
@@ -87,9 +105,9 @@ class Questions extends React.Component {
           stopCounter: false,
           timeLeft: 30,
           timeBonus: false,
-          // moreTimeUsed: false,
           fiftyFifty: false,
-          buttonsDisabled: false
+          buttonsDisabled: false,
+          timeBanked: newTimeBanked
         })
       }
     }, 3000)
@@ -100,11 +118,23 @@ class Questions extends React.Component {
     this.setState({ stopCounter: true, verdict: 'outoftime', buttonsDisabled: true })
     setTimeout(() => {
       if (this.state.questionNumber === 10) {
+        let timeBankedPoints = this.state.timeBanked
+        if (timeBankedPoints > 200) {
+          timeBankedPoints = 4
+        } else if (timeBankedPoints >= 150) {
+          timeBankedPoints = 2
+         } else {
+          timeBankedPoints = 0
+        }
+
         const r = {
           numberOfQuestions: this.state.questionNumber,
           correctStreak: this.state.correctStreak,
+          longestCorrectStreak: this.state.longestCorrectStreak,
           correctTotal: this.state.correctTotal,
-          ranking: this.state.correctTotal / 2
+          lifesRemaining: this.state.lifesRemaining,
+          timeBanked: this.state.timeBanked,
+          ranking: Math.floor((this.state.correctTotal + this.state.lifesRemaining + timeBankedPoints) / 2) / 2
         }
         this.props.onClick(r)
       } else {
@@ -137,7 +167,8 @@ class Questions extends React.Component {
     }
     this.setState({
       timeBonus: true,
-      moreTimeUsed: true
+      moreTimeUsed: true,
+      lifesRemaining: this.state.lifesRemaining - 2
     })
   }
 
@@ -156,7 +187,8 @@ class Questions extends React.Component {
     }
     this.setState({
       fiftyFifty: true,
-      fiftyFiftyUsed: true
+      fiftyFiftyUsed: true,
+      lifesRemaining: this.state.lifesRemaining - 2
     })
   }
 
@@ -164,10 +196,10 @@ class Questions extends React.Component {
     if (this.state.clueUsed) {
       return
     }
-    console.log('boom')
     document.getElementById('clue').className += ' show'
     this.setState({
-      clueUsed: true
+      clueUsed: true,
+      lifesRemaining: this.state.lifesRemaining - 2
     })
   }
 
@@ -203,9 +235,9 @@ class Questions extends React.Component {
             {/* <img src={newImage} /> */}
           </div>
           <div className='lifesContainer d-flex justify-content-around'>
-            <div className='life'><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
-            <div className='life'><Fifty onClick={() => { this.handle5050Click() }} /></div>
-            <div className='life'><Clue onClick={() => { this.handleClueClick() }} /></div>
+            <div className={`life ${this.state.moreTimeUsed}`}><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
+            <div className={`life ${this.state.fiftyFiftyUsed}`}><Fifty onClick={() => { this.handle5050Click() }} /></div>
+            <div className={`life ${this.state.clueUsed}`}><Clue onClick={() => { this.handleClueClick() }} /></div>
           </div>
           <div className='options d-flex flex-wrap'>
             <div

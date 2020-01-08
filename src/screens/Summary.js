@@ -1,6 +1,7 @@
 import React from 'react'
 import quizDatabase from '../questionDatabase'
 import { ReactComponent as BackArrow } from '../images/icons/backArrow.svg'
+import Stars from '../components/Stars.js'
 
 class Summary extends React.Component {
   constructor (props) {
@@ -29,6 +30,25 @@ class Summary extends React.Component {
       topic2 = 'sports'
     }
 
+    // calculating lifesRemaining
+    const lifes = this.props.results.lifesRemaining
+    const lifesRemaining = (lifes) => {
+      lifes = this.props.results.lifesRemaining / 2
+      if (lifes !== 3) return lifes
+      return 'All'
+    }
+    // calculating timeBonus
+    const timeBanked = this.props.results.timeBanked
+    const timeBonus = (timeBanked) => {
+      if (timeBanked >= 200) {
+        return 'Super Quick'
+      } else if (timeBanked >= 150) {
+        return 'Quick'
+      } else {
+        return ' - '
+      }
+    }
+
     return (
       <div>
         <div className='quick-summary d-flex justify-content-center'>
@@ -38,28 +58,25 @@ class Summary extends React.Component {
           <div className='results-box d-flex justify-content-between'>
             <span className='field'>Correct:</span><span className='value'>{this.props.results.correctTotal}</span>
           </div>
-          <div className='results-box d-flex justify-content-between'>
-            <span className='field'>Longest Streak:</span><span className='value'>{this.props.results.longestCorrectStreak}</span>
-          </div>
-          <div className='results-box d-flex justify-content-between'>
-            <span className='field'>Lifes Used:</span><span className='value'>All</span>
-          </div>
-          <div className='mt-5 talent-like'>
+          <div className='mt-3 talent-like'>
             <p className='description text-center'>If your {topic1} talent was a reflection of your {topic2} knowledge, you would be...</p>
             <img className='reflection-image' src={personImage} />
             <div className='d-flex'><p className='reflection-name text-center'>{person}</p></div>
           </div>
+          <div className='mt-5 results-box d-flex justify-content-between'>
+            <span className='field title'>Ranking</span>
+          </div>
+          <div className='mt results-box d-flex justify-content-between'>
+            <span className='field'>Lifes Remaining:</span><span className='value'>{lifesRemaining(lifes)}</span>
+          </div>
+          <div className='results-box d-flex justify-content-between'>
+            <span className='field'>Correct Streak:</span><span className='value'>{this.props.results.longestCorrectStreak}</span>
+          </div>
+          <div className='results-box d-flex justify-content-between'>
+            <span className='field'>Speed:</span><span className='value'>{timeBonus(timeBanked)}</span>
+          </div>
         </div>
-        <div className='d-flex justify-content-center'>
-          <h1 class='banner'>A Simple CSS Banner</h1>
-        </div>
-        <div className='mt-5 d-flex justify-content-center'>
-          <span class='fa fa-star checked' />
-          <span class='fa fa-star checked' />
-          <span class='fa fa-star checked' />
-          <span class='fa fa-star' />
-          <span class='fa fa-star' />
-        </div>
+        <Stars rating={this.props.results.ranking} />
         <div className='mt-5 ml-4'>
           <div onClick={this.props.onClick} className='back-arrow'><BackArrow /></div>
         </div>
