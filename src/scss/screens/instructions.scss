@@ -1,5 +1,6 @@
 .canvas#instructions {
-  background-color: $secondary-color;
+  background: rgb(19,92,108);
+  background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
   color: white;
   font-weight:400;
   .important-text {
@@ -15,12 +16,12 @@
       height: 33px;
       width: 33px;
       border-radius: 5px;
-      border: 1px solid white;
+      background-color: white;
       svg {
         height: 100%;
         width: 100%;
         padding: 8px;
-        fill: white;
+        fill: $secondary-color;
       }
     }
   }

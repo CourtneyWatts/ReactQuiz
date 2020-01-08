@@ -1,8 +1,12 @@
 .canvas#summary {
-  background-color: $secondary-color;
+  background: rgb(19,92,108);
+  background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
   .fa {
     font-size: 30px;
     padding: 3px;
+    color: gold;
+    width: 36px;
+    // border: 1px solid white;
   }
   .quick-summary{
     margin-top:40px;
@@ -29,6 +33,11 @@
         color: white;
         background-color: $secondary-color;
         width: 50%;
+        &.title{
+          width: 100%;
+          font-size: 25px;
+          text-align: center;
+        }
       }
     }
     .talent-like{
