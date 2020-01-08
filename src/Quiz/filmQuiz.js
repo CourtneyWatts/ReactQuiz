@@ -104,7 +104,7 @@ const filmQuiz = {
     ['Well done !', 'SEASONED PRO', 'Harrison Ford', harrisonford],
     ['Well done !', 'SEASONED PRO', 'Leonardo Dicaprio', leonardodicaprio],
     ['GREAT !', 'ULTIMATE PRO', 'Meryl Streep', merylstreep],
-    ['SUPER !', 'LEGENDARY', 'Steven Spielberg', stevenspielberg],
+    ['SUPER !', 'WORLDS BEST', 'Steven Spielberg', stevenspielberg],
     ['WOW !', 'LEGENDARY', 'Marlon Brando', marlonbrando]
   ]
 }
