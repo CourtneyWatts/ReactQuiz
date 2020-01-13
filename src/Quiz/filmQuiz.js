@@ -27,7 +27,7 @@ const filmQuiz = {
       question: "The worlds first, feature length computer-animated film, 'Toy Story', was released in the US, in...",
       answer: 1995,
       options: [1995, 1999, 2002, 1990],
-      clue: 'In the same year, Apollo 13 was released',
+      clue: 'The O. J. Simpson murder case, was one of the biggest news stories this year',
       supportingImage: questionOneImage
     },
     {
