@@ -1,7 +1,7 @@
 import rebeccablack from '../images/accolades/music/rebeccablack.jpg'
 import parishilton from '../images/accolades/music/parishilton.jpg'
 import vanillaice from '../images/accolades/music/vanillaice.jpg'
-import ginag from '../images/accolades/music/ginag.png'
+import peterandre from '../images/accolades/music/peterandre.jpg'
 import littlemix from '../images/accolades/music/littlemix.jpg'
 import takethat from '../images/accolades/music/takethat.jpg'
 import jayz from '../images/accolades/music/jayz.jpg'
@@ -98,7 +98,7 @@ const musicQuiz = {
     ['Ouch !', '-', 'Rebecca Black', rebeccablack],
     ['Ouch !', '-', 'Paris Hilton', parishilton],
     ['Oh No !', 'NOVICE', 'Vanilla Ice', vanillaice],
-    ['mmmm...', 'ROOKIE', 'Gina G', ginag.jpg],
+    ['mmmm...', 'ROOKIE', 'Peter Andre', peterandre],
     ['mmmm...', 'ROOKIE', 'Little Mix', littlemix],
     ['Well done !', 'INTERMEDIATE', 'Take That', takethat],
     ['Well done !', 'SEASONED', 'Jay-Z', jayz],
