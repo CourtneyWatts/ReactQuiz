@@ -11,7 +11,7 @@ class Game extends React.Component {
     super(props)
     this.state = {
       screen: 'intro',
-      currentCount: 1,
+      currentCount: 10,
       chosenCategory: null,
       usersResults: {}
     }
@@ -27,10 +27,9 @@ class Game extends React.Component {
     })
     if (this.state.currentCount < 0) {
       // clearInterval(this.intervalId)
-      console.log('now is the time')
       if (this.state.screen === 'intro') {
         this.setState({
-          currentCount: 10,
+          currentCount: 100,
           screen: 'instructions'
         })
       } else if (this.state.screen === 'instructions') {
@@ -80,33 +79,23 @@ class Game extends React.Component {
   render () {
     if (this.state.screen === 'intro') {
       return (
-        <div className='canvas' id='intro'>
-          <Intro />
-        </div>
+        <Intro />
       )
     } else if (this.state.screen === 'instructions') {
       return (
-        <div className='canvas' id='instructions'>
-          <Instructions onClick={this.handleStartGameClick} />
-        </div>
+        <Instructions onClick={this.handleStartGameClick} />
       )
     } else if (this.state.screen === 'select-category') {
       return (
-        <div className='canvas' id='select-category'>
-          <SelectCategory onClick={this.handleCategoryClick} />
-        </div>
+        <SelectCategory onClick={this.handleCategoryClick} />
       )
     } else if (this.state.screen === 'questions') {
       return (
-        <div className='canvas' id='questions'>
-          <Questions category={this.state.chosenCategory} onClick={this.handleFinalAnswerClick} />
-        </div>
+        <Questions category={this.state.chosenCategory} onClick={this.handleFinalAnswerClick} />
       )
     } else if (this.state.screen === 'summary') {
       return (
-        <div className='canvas' id='summary'>
-          <Summary category={this.state.chosenCategory} results={this.state.usersResults} onClick={this.handleBackToStartClick} />
-        </div>
+        <Summary category={this.state.chosenCategory} results={this.state.usersResults} onClick={this.handleBackToStartClick} />
       )
     }
   }
