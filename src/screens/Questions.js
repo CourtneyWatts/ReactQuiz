@@ -4,6 +4,7 @@ import Timer from '../components/Timer.js'
 import { ReactComponent as MoreTime } from '../images/icons/moreTime.svg'
 import { ReactComponent as Fifty } from '../images/icons/fifty.svg'
 import { ReactComponent as Clue } from '../images/icons/clue.svg'
+import { Animated } from 'react-animated-css'
 
 // import { ReactComponent as HalfChance } from '../images/icons/halfChance.svg'
 
@@ -123,7 +124,7 @@ class Questions extends React.Component {
           timeBankedPoints = 4
         } else if (timeBankedPoints >= 150) {
           timeBankedPoints = 2
-         } else {
+        } else {
           timeBankedPoints = 0
         }
 
@@ -162,7 +163,7 @@ class Questions extends React.Component {
   }
 
   handleMoreTimeClick () {
-    if (this.state.moreTimeUsed) {
+    if (this.state.moreTimeUsed || this.state.buttonsDisabled) {
       return
     }
     this.setState({
@@ -173,7 +174,7 @@ class Questions extends React.Component {
   }
 
   handle5050Click () {
-    if (this.state.fiftyFiftyUsed) {
+    if (this.state.fiftyFiftyUsed || this.state.buttonsDisabled) {
       return
     }
     const questionIndexNumber = this.state.questionNumber - 1
@@ -193,7 +194,7 @@ class Questions extends React.Component {
   }
 
   handleClueClick () {
-    if (this.state.clueUsed) {
+    if (this.state.clueUsed || this.state.buttonsDisabled) {
       return
     }
     document.getElementById('clue').className += ' show'
@@ -215,49 +216,53 @@ class Questions extends React.Component {
     const newImage = question.supportingImage
 
     return (
-      <div>
-        <div>
-          <div className='status d-flex justify-content-between align-items-center'>
-            <p className='chosenCategory'>{chosenCategory}
-            </p>
-            <div className='numberGroup text-center'>
-              <p className='questionNumber'>{questionIndexNumber + 1}</p>
-              <p className='of'>of</p>
-              <p className='total'>10</p>
+      <div className='canvas' id='questions'>
+        <Animated>
+          <div>
+            <div>
+              <div className='status d-flex justify-content-between align-items-center'>
+                <p className='chosenCategory'>{chosenCategory}
+                </p>
+                <div className='numberGroup text-center'>
+                  <p className='questionNumber'>{questionIndexNumber + 1}</p>
+                  <p className='of'>of</p>
+                  <p className='total'>10</p>
+                </div>
+              </div>
+              <Timer stopCounter={this.state.stopCounter} timeBonus={this.state.timeBonus} timeLeft={this.state.timeLeft} outOfTime={this.outOfTime} verdict={this.state.verdict} />
+              <div className='question d-flex align-items-center justify-content-center'>
+                <p>{questionText}</p>
+              </div>
+              <div className='supportingImageContainer' style={{ backgroundImage: `url(${newImage})`, backgroundSize: 'cover' }}>
+                <div id='clue' className='clue-overlay'><p className='clue-text'>{clue}</p></div>
+                {/* <img src={newImage} /> */}
+              </div>
+              <div className='lifesContainer d-flex justify-content-around'>
+                <div className={`life ${this.state.moreTimeUsed}`}><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
+                <div className={`life ${this.state.fiftyFiftyUsed}`}><Fifty onClick={() => { this.handle5050Click() }} /></div>
+                <div className={`life ${this.state.clueUsed}`}><Clue onClick={() => { this.handleClueClick() }} /></div>
+              </div>
+              <div className='options d-flex flex-wrap'>
+                <div
+                  id={answerOptions[0]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
+                >{answerOptions[0]}
+                </div>
+                <div
+                  id={answerOptions[1]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
+                >{answerOptions[1]}
+                </div>
+                <div
+                  id={answerOptions[2]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
+                >{answerOptions[2]}
+                </div>
+                <div
+                  id={answerOptions[3]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
+                >{answerOptions[3]}
+                </div>
+              </div>
             </div>
           </div>
-          <Timer stopCounter={this.state.stopCounter} timeBonus={this.state.timeBonus} timeLeft={this.state.timeLeft} outOfTime={this.outOfTime} verdict={this.state.verdict} />
-          <div className='question d-flex align-items-center justify-content-center'>
-            <p>{questionText}</p>
-          </div>
-          <div className='supportingImageContainer' style={{ backgroundImage: `url(${newImage})`, backgroundSize: 'cover' }}>
-            <div id='clue' className='clue-overlay'><p className='clue-text'>{clue}</p></div>
-            {/* <img src={newImage} /> */}
-          </div>
-          <div className='lifesContainer d-flex justify-content-around'>
-            <div className={`life ${this.state.moreTimeUsed}`}><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
-            <div className={`life ${this.state.fiftyFiftyUsed}`}><Fifty onClick={() => { this.handle5050Click() }} /></div>
-            <div className={`life ${this.state.clueUsed}`}><Clue onClick={() => { this.handleClueClick() }} /></div>
-          </div>
-          <div className='options d-flex flex-wrap'>
-            <div
-              id={answerOptions[0]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
-            >{answerOptions[0]}
-            </div>
-            <div
-              id={answerOptions[1]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
-            >{answerOptions[1]}
-            </div>
-            <div
-              id={answerOptions[2]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
-            >{answerOptions[2]}
-            </div>
-            <div
-              id={answerOptions[3]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
-            >{answerOptions[3]}
-            </div>
-          </div>
-        </div>
+        </Animated>
       </div>
     )
   }
