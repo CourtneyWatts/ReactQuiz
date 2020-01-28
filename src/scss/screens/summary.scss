@@ -1,6 +1,12 @@
 .canvas#summary {
-  background: rgb(19,92,108);
-  background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
+  // background: rgb(19,92,108);
+  // background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
+  .back-button {
+    margin-top: 40px;
+    @media (max-width: 575.98px) {
+      margin-top: 10px;
+    }
+  }
   .fa {
     font-size: 30px;
     padding: 3px;
@@ -12,6 +18,9 @@
     margin-top:40px;
     margin-bottom:35px;
     color: white;
+    @media (max-width: 575.98px) {
+      margin-bottom:5px;
+    }
   }
   .summary-section {
     .results-box{
@@ -21,7 +30,9 @@
       border: 1px solid white;
       font-weight: 700;
       background-color: white;
-
+      @media (max-width: 575.98px) {
+        width: 80%;
+      }
       .value {
         padding: 8px;
         color: $secondary-color;
@@ -41,6 +52,10 @@
       }
     }
     .talent-like{
+      margin-bottom: 50px;
+      @media (max-width: 575.98px) {
+        margin-bottom: 25px;
+      }
       .description {
         width: 280px;
         font-size:13px;
@@ -48,6 +63,9 @@
         padding:8px;
         background-color: white;
         margin: 10px auto;
+        @media (max-width: 575.98px) {
+          width: 80%;
+        }
 
         // border-radius: 5px 0 0 5px;
         p {

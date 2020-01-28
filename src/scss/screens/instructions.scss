@@ -1,8 +1,12 @@
 .canvas#instructions {
-  background: rgb(19,92,108);
-  background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
+  // background: rgb(19,92,108);
+  // background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
   color: white;
   font-weight:400;
+  padding: 20px;
+  @media (max-width: 575.98px) {
+    padding: 7% 7% 20%;
+  }
   .important-text {
     font-weight: bold;
   }
@@ -27,11 +31,27 @@
   }
   .ready-to-play-button {
     margin-top: 55px;
-    padding: 5px 15px;
+    padding: 8px 16px;
     border-radius: 10px;
     background-color: white;
     color: $secondary-color;
     font-weight: bold;
+    font-size: 20px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    @media (max-width: 575.98px) {
+      margin-top: 15px;
+    }
   }
 }
+
+// @media (max-width: 575.98px) { 
+//   .canvas#instructions {
+//     background: rgb(19,92,108);
+//     background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
+//     color: white;
+//     font-weight:400;
+//     .important-text {
+//       font-weight: bold;
+//     }
+//  }
+// }

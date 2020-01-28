@@ -20,7 +20,7 @@ class Stars extends React.Component {
     }
 
     return (
-      <div className='mt-5 d-flex justify-content-center'>
+      <div className='mt-4 d-flex justify-content-center'>
         {stars(this.props.rating)}
       </div>
     )

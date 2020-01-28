@@ -1,16 +1,19 @@
 
 
 .canvas#questions {
-  background: rgb(19,92,108);
-  background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);  // #F65207
+  // background: rgb(19,92,108);
+  // background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);  // #F65207
   // #EE7225
   // #D9DFC1
   // #99D4D3
   // $base-color
   .status {
     height: 85px;
-    padding: 0 20px;
+    padding: 0 5%;
     color: white;
+    @media (max-width: 575.98px) {
+      height: 60px;
+    }
     p {
       margin:0
     }
@@ -19,14 +22,27 @@
       font-weight: 900;
     }
     .numberGroup {
+      @media (max-width: 575.98px) {
+        display:flex;
+        align-items: center;
+      }
+      
       .questionNumber {
         font-size: 36px;
         line-height: 38px;
         font-weight: 900;
+        @media (max-width: 575.98px) {
+          margin-right: 10px;
+          font-size: 40px;
+
+        }
       }
       .of {
         font-size: 12px ;
         line-height: 12px;
+        @media (max-width: 575.98px) {
+          margin-right: 10px;
+        }
       }
       .total {
         font-weight: 900;
@@ -46,6 +62,10 @@
     height:50px;
     font-size:  38px;
     border-top: 1px solid $secondary-color;
+    @media (max-width: 575.98px) {
+    height:40px;
+    font-size:30px;
+    }
     
   }
   #timer-div {
@@ -65,10 +85,17 @@
   .question {
     color: white;
     font-weight: 700;
-    padding: 10px;
+    padding: 7% 5%;
     height: 170px;
     font-size: 22px;
     text-align: center;
+    @media (max-width: 575.98px) {
+      color: white;
+      font-weight: 700;
+      padding: 5%;
+      height: 130px;
+      font-size: 18px;
+    }
   }
   .supportingImageContainer {
     height: 200px;
@@ -76,7 +103,6 @@
     text-align: center;
     border-top: 1px solid $base-color;
     border-bottom: 1px solid $base-color;
-
     img {
       max-width: 100%;
       max-height: 100%;
@@ -93,6 +119,9 @@
         font-weight: 600;
         padding: 60px 30px 0px;
         word-spacing: 1px;
+        @media (max-width: 575.98px) {
+          padding-top: 15%;
+        }
       }
       &.show {
         display: block;
@@ -100,7 +129,7 @@
     }
   }
   .lifesContainer {
-    padding: 15px 0;
+    padding: 2% 0;
     color: white;
         border-bottom: 1px solid $base-color;
 
@@ -126,9 +155,12 @@
   .options {
     padding: 20px;
     color: rgba(19, 92, 108, 0.7);
-    ;
+    @media (max-width: 575.98px) {
+      padding: 10px 20px;
+    }
     .option {
     background-color: white;
+    border: 5px solid;
     width: 42%;
     margin: 4%;
     padding: 10px;
@@ -137,6 +169,10 @@
     font-weight:900;
     border-radius: 10px;
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.4);
+    &.selected {
+      border: 5px solid #dab54b;
+      color: #dab54b;
+    }
       &.ruled-out {
         color: #c5c5c5;
         background-color: #d3d3d3;

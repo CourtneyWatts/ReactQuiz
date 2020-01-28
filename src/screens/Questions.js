@@ -35,10 +35,11 @@ class Questions extends React.Component {
   }
 
   // Clicking an answer
-  handleAnswerClick (s, a) {
+  handleAnswerClick (e, s, a) {
     if (this.state.buttonsDisabled || document.getElementById(s).classList.contains('ruled-out')) {
       return
     }
+    e.target.classList.add('selected')
     const timeBanked = document.getElementById('timer').innerText
     let newTimeBanked
     const selected = s
@@ -94,7 +95,7 @@ class Questions extends React.Component {
         // wipes 50/50 formating & clue display
         const optionDivs = document.querySelectorAll('.option')
         for (let i = 0; i < optionDivs.length; i++) {
-          optionDivs[i].classList.remove('ruled-out')
+          optionDivs[i].classList.remove('ruled-out', 'selected')
         }
         document.getElementById('clue').classList.remove('show')
 
@@ -233,10 +234,12 @@ class Questions extends React.Component {
               <div className='question d-flex align-items-center justify-content-center'>
                 <p>{questionText}</p>
               </div>
-              <div className='supportingImageContainer' style={{ backgroundImage: `url(${newImage})`, backgroundSize: 'cover' }}>
-                <div id='clue' className='clue-overlay'><p className='clue-text'>{clue}</p></div>
-                {/* <img src={newImage} /> */}
-              </div>
+              <Animated>
+                <div className='supportingImageContainer' style={{ backgroundImage: `url(${newImage})`, backgroundSize: 'cover' }}>
+                  <div id='clue' className='clue-overlay'><p className='clue-text'>{clue}</p></div>
+                  {/* <img src={newImage} /> */}
+                </div>
+              </Animated>
               <div className='lifesContainer d-flex justify-content-around'>
                 <div className={`life ${this.state.moreTimeUsed}`}><MoreTime onClick={() => { this.handleMoreTimeClick() }} /></div>
                 <div className={`life ${this.state.fiftyFiftyUsed}`}><Fifty onClick={() => { this.handle5050Click() }} /></div>
@@ -244,19 +247,19 @@ class Questions extends React.Component {
               </div>
               <div className='options d-flex flex-wrap'>
                 <div
-                  id={answerOptions[0]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[0], a) }}
+                  id={answerOptions[0]} className='option' disabled={this.state.buttonsDisabled} onClick={(e) => { this.handleAnswerClick(e, answerOptions[0], a) }}
                 >{answerOptions[0]}
                 </div>
                 <div
-                  id={answerOptions[1]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[1], a) }}
+                  id={answerOptions[1]} className='option' disabled={this.state.buttonsDisabled} onClick={(e) => { this.handleAnswerClick(e, answerOptions[1], a) }}
                 >{answerOptions[1]}
                 </div>
                 <div
-                  id={answerOptions[2]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[2], a) }}
+                  id={answerOptions[2]} className='option' disabled={this.state.buttonsDisabled} onClick={(e) => { this.handleAnswerClick(e, answerOptions[2], a) }}
                 >{answerOptions[2]}
                 </div>
                 <div
-                  id={answerOptions[3]} className='option' disabled={this.state.buttonsDisabled} onClick={() => { this.handleAnswerClick(answerOptions[3], a) }}
+                  id={answerOptions[3]} className='option' disabled={this.state.buttonsDisabled} onClick={(e) => { this.handleAnswerClick(e, answerOptions[3], a) }}
                 >{answerOptions[3]}
                 </div>
               </div>

@@ -66,7 +66,7 @@ class Summary extends React.Component {
                 <img className='reflection-image' src={personImage} />
                 <div className='d-flex'><p className='reflection-name text-center'>{person}</p></div>
               </div>
-              <div className='mt-5 results-box d-flex justify-content-between'>
+              <div className='results-box d-flex justify-content-between'>
                 <span className='field title'>Ranking</span>
               </div>
               <div className='mt results-box d-flex justify-content-between'>
@@ -80,7 +80,7 @@ class Summary extends React.Component {
               </div>
             </div>
             <Stars rating={this.props.results.ranking} />
-            <div className='mt-5 ml-4'>
+            <div className='back-button ml-4'>
               <div onClick={this.props.onClick} className='back-arrow'><BackArrow /></div>
             </div>
           </div>

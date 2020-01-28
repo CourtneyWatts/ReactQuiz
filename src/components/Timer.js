@@ -17,6 +17,7 @@ class Timer extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
+    console.log('test')
     if (newProps.stopCounter === false) {
       console.log('stopCounterfalse')
       if (newProps.timeBonus) {

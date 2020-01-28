@@ -1,18 +1,22 @@
 .canvas#select-category {
-background: rgb(19,92,108);
-background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
+// background: rgb(19,92,108);
+// background: linear-gradient(180deg, rgba(19,92,108,1) 0%, rgba(19,92,108,1) 52%, rgba(19,92,108,0.7133228291316527) 100%);
 padding-top: 80px;
-  padding-bottom: 80px;
-    .category-button {
-        width: 300px;
-        height: 175px;
-        background-color: azure;
-        border-radius: 15px;
-        background-position: center;
-        background-size: cover;
-        color: rgba(255, 255, 255, 0.8);;
-        font-weight:900;
-        font-size: 50px;
-        border: 3px solid white;
+padding-bottom: 80px;
+@media (max-width: 575.98px) {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+  .category-button {
+      width: 300px;
+      height: 175px;
+      background-color: azure;
+      border-radius: 15px;
+      background-position: center;
+      background-size: cover;
+      color: rgba(255, 255, 255, 0.8);;
+      font-weight:900;
+      font-size: 50px;
+      border: 3px solid white;
     }
   }

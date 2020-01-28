@@ -23,7 +23,7 @@ class Instructions extends React.Component {
     return (
       <div className='canvas' id='instructions'>
         <Animated animationIn='fadeIn' animationInDuration={1000}>
-          <div className='instuctionsList p-5'>
+          <div className='instuctions'>
             <h2 className='Title mb-4'>How to play</h2>
             <p>Choose from one of three categories - <span className='important-text'>Film, Music</span> or <span className='important-text'>Sports</span></p>
             <p>Now, its you versus the clock. <br /><br />10 questions, with 30 seconds to answer each question</p>
@@ -42,7 +42,7 @@ class Instructions extends React.Component {
               </div>
               <p>Use them wisely, you only get one of each type - per game.</p>
             </div>
-            <div className='mt-5 d-flex justify-content-center'>
+            <div className='d-flex justify-content-center'>
               <div onClick={() => this.props.onClick()} className='ready-to-play-button text-center'>Ready to play</div>
             </div>
           </div>
