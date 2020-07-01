@@ -1,3 +1,28 @@
+## ReactQuiz
+
+I have taken my original Javascript quiz (written in plain JS) and I have rebuilt it using React, and have added features.
+
+NEW -  LIFE TOKENS
+
+Finding some of the questions tough, why not use one of the following life tokens.
+* Sand timer - will grant you more time to answer the question.
+* 50/50 - will remove 2 incorrect answers.
+* Magnifying glass - will reveal a clue.
+
+Hosted at: https://courtneywatts.github.io/dadjokes/
+
+### Choose from one of three categories
+
+<img src="images/mobile-view1.jpg" width="280px">
+
+### Now it’s you versus the clock. 10 questions, with 30 seconds to answer each.
+
+<img src="images/mobile-view2.jpg" width="280px">
+
+### Where will you rank? 
+
+<img src="images/mobile-view3.jpg" width="280px">
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
