@@ -9,19 +9,22 @@ Finding some of the questions tough, why not use one of the following life token
 * 50/50 - will remove 2 incorrect answers.
 * Magnifying glass - will reveal a clue.
 
-Hosted at: https://courtneywatts.github.io/dadjokes/
+Hosted at: https://courtneywatts.github.io/ReactQuiz/
 
 ### Choose from one of three categories
-
+<p align="center">
 <img src="images/mobile-view1.jpg" width="280px">
+</p>
 
 ### Now it’s you versus the clock. 10 questions, with 30 seconds to answer each.
-
+<p align="center">
 <img src="images/mobile-view2.jpg" width="280px">
+</p>
 
 ### Where will you rank? 
-
+<p align="center">
 <img src="images/mobile-view3.jpg" width="280px">
+</p>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
