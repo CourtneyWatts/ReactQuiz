@@ -16,7 +16,7 @@ Hosted at: https://courtneywatts.github.io/ReactQuiz/
 <img src="images/mobile-view1.jpg" width="280px">
 </p>
 
-### Now it’s you versus the clock. 10 questions, with 30 seconds to answer each.
+### Now it’s you versus the clock
 <p align="center">
 <img src="images/mobile-view2.jpg" width="280px">
 </p>
