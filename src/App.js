@@ -5,7 +5,7 @@ import Instructions from './screens/Instructions'
 import SelectCategory from './screens/SelectCategory'
 import Questions from './screens/Questions'
 import Summary from './screens/Summary'
-
+//test
 class Game extends React.Component {
   constructor (props) {
     super(props)
